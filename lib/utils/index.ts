@@ -15,7 +15,6 @@ export {
   formatTxHash,
   capitalize,
   formatTimestamp,
-  formatWeiToEth,
   linkifyOnchain,
   getBlockScoutTxUrl,
   getBlockScoutAddressUrl,

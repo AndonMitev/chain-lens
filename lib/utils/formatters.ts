@@ -134,39 +134,3 @@ export function formatTimestamp(timestamp: number | string): string {
     timeZoneName: 'short',
   });
 }
-
-/**
- * Format wei to human-readable units with optional fixed decimal places
- * @param wei - The wei amount as string, number, or bigint
- * @param config - Configuration object
- * @param config.decimals - Number of decimals (default: 18 for ETH)
- * @param config.fixed - If provided, fixes decimal places to this count
- * @returns Formatted amount as string
- *
- * @example
- * formatWeiToEth('71000000000000000')
- * // => "0.071"
- *
- * formatWeiToEth('71000000000000000', { fixed: 4 })
- * // => "0.0710"
- *
- * formatWeiToEth('1000000', { decimals: 6, fixed: 2 })
- * // => "1.00"
- */
-export function formatWeiToEth(
-  wei: string | number | bigint,
-  config?: {
-    decimals?: number;
-    fixed?: number;
-  },
-): string {
-  const { decimals = 18, fixed } = config || {};
-  const eth = formatUnits(BigInt(wei), decimals);
-  const num = parseFloat(eth);
-
-  if (fixed !== undefined) {
-    return num.toFixed(fixed);
-  }
-
-  return num.toString();
-}

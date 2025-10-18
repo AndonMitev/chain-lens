@@ -277,25 +277,6 @@ export function ChatMessage({ message }: { message: UIMessage }) {
           )}
         </div>
 
-        {/* Thinking steps (only for AI, enhanced animation) */}
-        {!isUser && thinking.length > 0 && (
-          <div className='space-y-2.5 pb-2'>
-            {thinking.map((step, i) => (
-              <div
-                key={i}
-                className='flex items-start gap-2.5 text-sm text-muted-foreground/90 animate-in fade-in slide-in-from-left-3 duration-400'
-                style={{ animationDelay: `${i * 150}ms` }}
-              >
-                <div className='relative'>
-                  <Sparkles className='h-4 w-4 mt-0.5 text-secondary/70 shrink-0 animate-pulse' />
-                  <div className='absolute inset-0 blur-md bg-secondary/20 animate-pulse' />
-                </div>
-                <span className='leading-relaxed font-medium'>{step}</span>
-              </div>
-            ))}
-          </div>
-        )}
-
         {/* Main message content with enhanced card styling */}
         {main && (
           <div
@@ -307,6 +288,25 @@ export function ChatMessage({ message }: { message: UIMessage }) {
                 : 'bg-gradient-to-br from-secondary/8 via-secondary/4 to-transparent border-secondary/20',
             )}
           >
+            {/* Thinking steps inside the box if they exist */}
+            {!isUser && thinking.length > 0 && (
+              <div className='space-y-2.5 pb-4 mb-4 border-b border-secondary/20'>
+                {thinking.map((step, i) => (
+                  <div
+                    key={i}
+                    className='flex items-start gap-2.5 text-sm text-muted-foreground/90 animate-in fade-in slide-in-from-left-3 duration-400'
+                    style={{ animationDelay: `${i * 150}ms` }}
+                  >
+                    <div className='relative'>
+                      <Sparkles className='h-4 w-4 mt-0.5 text-secondary/70 shrink-0 animate-pulse' />
+                      <div className='absolute inset-0 blur-md bg-secondary/20 animate-pulse' />
+                    </div>
+                    <span className='leading-relaxed font-medium'>{step}</span>
+                  </div>
+                ))}
+              </div>
+            )}
+
             <div
               className={cn(
                 'text-[15px] leading-relaxed',

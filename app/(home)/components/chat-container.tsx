@@ -16,10 +16,15 @@ export function ChatContainer() {
   });
 
   const [draft, setDraft] = useState('');
-  const isLoading = status === 'streaming';
+  const isLoading = status === 'streaming' || status === 'submitted';
 
   const handlePromptSelect = (prompt: string) => {
     setDraft(prompt);
+    // Send the message immediately after setting draft
+    setTimeout(() => {
+      sendMessage({ text: prompt });
+      setDraft(''); // Clear input after sending
+    }, 0);
   };
 
   return (
