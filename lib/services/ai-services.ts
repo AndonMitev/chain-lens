@@ -11,8 +11,6 @@ import {
 import { openai } from '@ai-sdk/openai';
 import { StreamableHTTPClientTransport } from '@modelcontextprotocol/sdk/client/streamableHttp.js';
 import { Client as McpClient } from '@modelcontextprotocol/sdk/client/index.js';
-import { ROUTER_SYSTEM_PROMPT } from '@/lib/constants/system-prompts';
-import { SUPPORTED_CHAINS } from '@/lib/config/chains';
 import { mainnet } from 'viem/chains';
 import { z } from 'zod';
 import { agentRegistry, type AgentType } from '@/lib/agents';
