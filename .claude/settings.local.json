@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx tsc --noEmit)",
+      "Bash(npx tsc --noEmit --pretty false)",
+      "Bash(cat node_modules/@ai-sdk/react/dist/index.d.ts)",
+      "Bash(cat node_modules/@ai-sdk/react/package.json)",
+      "Bash(pnpm build)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
